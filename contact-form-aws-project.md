@@ -38,55 +38,55 @@ The goal was to create a secure, serverless contact form that emails form submis
 - Enabled static website hosting.
 - Uploaded `index.html` and `script.js`.
 
-📸 *Screenshot of S3 bucket:*
-![S3 Bucket Contents](screenshots/bucket.png)
+📸 *S3 bucket showing site files:*  
+![S3 Bucket Contents](screenshots/s3-bucket-index.png)
 
 ---
 
 ### 2. **Lambda Function**
-- Wrote the logic to parse form data and send an email via SES.
+- Wrote logic to parse form data and send email via SES.
 - Configured IAM permissions for SES access.
 
-📸 *Lambda script screenshot:*
-![Lambda Code](screenshots/Serverless-Contact-Form-final-project.png)
+📸 *Lambda JavaScript form logic:*  
+![Script File](screenshots/form-script-code.png)
 
 ---
 
 ### 3. **API Gateway**
-- Created a REST API.
-- Set up POST method integration with Lambda.
-- Enabled CORS for the frontend domain.
+- Created REST API
+- Linked POST method to Lambda
+- Enabled CORS for site access
 
-📸 *CloudWatch logs showing initial errors:*
-![CloudWatch Error](screenshots/Screenshot-2025-07-22-165532.png)
-
----
-
-## ⚠️ Common Errors & Debugging
-
-### ❌ Issue: "MessageRejected" (SES error)
-- **Cause:** Email not verified in SES sandbox mode.
-- **Fix:** Verified both sender and recipient emails in SES console.
-
-📸 *Error in CloudWatch:*
-![SES Rejection](screenshots/Contact-Form-Error-2025-07-22-165053.png)
+📸 *CloudWatch showing SES error:*  
+![CloudWatch Log](screenshots/cloudwatch-error-log.png)
 
 ---
 
-### ❌ JavaScript fetch error
-- **Cause:** Invalid endpoint or network issue.
-- **Fix:** Replaced placeholder endpoint in `script.js` with the correct API Gateway URL.
+## ⚠️ Common Errors & Fixes
 
-📸 *JavaScript Error Screenshot:*
-![Fetch Error](screenshots/Contact-Form-Test-Error-2.png)
+### ❌ SES MessageRejected Error
+- **Cause:** Email not verified (SES sandbox)
+- **Fix:** Verified sender/receiver emails in SES console
+
+📸 *SES Rejection Error:*  
+![SES Error](screenshots/error-message-1.png)
+
+---
+
+### ❌ JavaScript Fetch Error
+- **Cause:** Incorrect endpoint or CORS issue
+- **Fix:** Replaced dummy endpoint with valid API Gateway URL
+
+📸 *Frontend error message:*  
+![JavaScript Error](screenshots/error-message-2.png)
 
 ---
 
 ### ✅ Success Confirmation
-Once the proper SES configuration was in place and the endpoint was updated:
+Once SES and endpoint were corrected, form submissions succeeded.
 
-📸 *Success message:*
-![Success Confirmation](screenshots/Contact-Form-Test-Success.png)
+📸 *Success popup from form:*  
+![Form Success](screenshots/form-success-screenshot.png)
 
 ---
 
@@ -119,24 +119,25 @@ form.addEventListener("submit", async (e) => {
     alert("Submission failed. Please check your connection.");
   }
 });
-📸 Script file:
+🧩 GitHub Documentation Steps
+1. Repo Initialization
+📸 Git init and README:
 
-📂 Git Workflow Documentation (Optional)
-If you want to document your GitHub process:
+2. Commit Errors
+📸 Git fatal pathspec error:
 
-📸 Initializing repo & adding resume.html:
+3. Add & Commit Fix
+📸 Commit screenshot:
 
-📸 Commit message:
-
-🚀 Live Site
+🚀 Live Portfolio
 https://latrisha-portfolio-site.s3-website-us-east-1.amazonaws.com
 
-📝 Future Improvements
-Integrate CAPTCHA to prevent spam.
+🔮 Future Enhancements
+Integrate CAPTCHA to reduce spam
 
-Move SES out of sandbox mode for production-level use.
+Move SES out of sandbox
 
-Add client-side form validation.
+Add form validation + backend sanitization
 
-🙏 Acknowledgments
-Thanks to The Knowledge House for guidance and mentorship throughout this project.
+🔥 Credits
+Thanks to The Knowledge House for guidance during this fellowship project.
